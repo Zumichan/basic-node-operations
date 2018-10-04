@@ -1,0 +1,136 @@
+#### Questions
+
+1. Run the commands sort, wc and uniq on the commands.js file. Explain how they work and what the output was.
+
+Sort: Went into the inner level of the file and sorted all the lines at the same level in alphabetical order. Then moved on to one upper level and repeated the same process until all the lines in the files are sorted.
+
+(Output)
+          done(data);
+          if (err) throw err;
+        done(userInput);
+       break;
+       break;
+       commandLibrary.cat(userInputArray.slice(1));
+       commandLibrary.echo(userInputArray.slice(1).join(" "));
+      const fileName = fullPath[0];
+      fs.readFile(fileName, (err, data) => {
+      });
+     case "cat":
+     case "echo":
+     process.stdout.write('\nprompt > ');
+     process.stdout.write(output);
+    "cat": function(fullPath) {
+    "echo": function(userInput) {
+    },
+   const command = userInputArray[0];
+   const userInputArray = userInput.split(" ");
+   switch (command) {
+   }
+  }
+ const commandLibrary = {
+ function done(output) {
+ function evaluateCmd(userInput) {
+ module.exports.commandLibrary = commandLibrary;
+ module.exports.evaluateCmd = evaluateCmd;
+ }
+ }
+ };
+const fs = require("fs");
+
+wc: printed out newline, word, and byte counts for a file
+
+(Output) 
+ 36      73     832 commands.js
+
+uniq: It returned the contents in commands.js. It's supposed to sorts each line in a file and only returns different lines. In case of commands.js, there were no same adjacent lines and uniq just returned the contents.
+
+(Output)
+
+const fs = require("fs");
+
+ function done(output) {
+     process.stdout.write(output);
+     process.stdout.write('\nprompt > ');
+ }
+
+ function evaluateCmd(userInput) {
+   const userInputArray = userInput.split(" ");
+   const command = userInputArray[0];
+
+   switch (command) {
+     case "echo":
+       commandLibrary.echo(userInputArray.slice(1).join(" "));
+       break;
+     case "cat":
+       commandLibrary.cat(userInputArray.slice(1));
+       break;
+   }
+ }
+
+ const commandLibrary = {
+    "echo": function(userInput) {
+        done(userInput);
+    },
+    "cat": function(fullPath) {
+      const fileName = fullPath[0];
+      fs.readFile(fileName, (err, data) => {
+          if (err) throw err;
+          done(data);
+      });
+  }
+ };
+
+ module.exports.commandLibrary = commandLibrary;
+ module.exports.evaluateCmd = evaluateCmd;
+
+
+2. Using the pipe (|) connect at least two commands and run it on commands.js. Explain what the output was and why the specific data was outputted.
+
+sort commands.js|uniq: sort sorted lines alphabetically and uniq removed "break" and "{" since there were exact same lines above them.
+
+(Output)
+done(data);
+          if (err) throw err;
+        done(userInput);
+       break;
+       commandLibrary.cat(userInputArray.slice(1));
+       commandLibrary.echo(userInputArray.slice(1).join(" "));
+      const fileName = fullPath[0];
+      fs.readFile(fileName, (err, data) => {
+      });
+     case "cat":
+     case "echo":
+     process.stdout.write('\nprompt > ');
+     process.stdout.write(output);
+    "cat": function(fullPath) {
+    "echo": function(userInput) {
+    },
+   const command = userInputArray[0];
+   const userInputArray = userInput.split(" ");
+   switch (command) {
+   }
+  }
+ const commandLibrary = {
+ function done(output) {
+ function evaluateCmd(userInput) {
+ module.exports.commandLibrary = commandLibrary;
+ module.exports.evaluateCmd = evaluateCmd;
+ }
+ };
+const fs = require("fs");
+
+cat commands.js|wc: returned newline, word, and byte counts of commands.js
+
+   36      73     832
+
+
+#### Programming Questions
+
+6. Reverse String
+
+Given a string, reverse the order of characters in each word within a sentence while maintaining the original word order and whitespace and return the string. To improve your problem-solving experience, use the suggested functions to solve the problem.
+
+Example
+Input: "I'm learning to program algorithms!"
+Output: "m'I gninrael ot margorp !smhtirogla"
+
