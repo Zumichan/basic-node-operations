@@ -53,7 +53,7 @@ const fs = require("fs");
           if (err) throw err;
           let splitArray = data.split('\n');
           let lastNLines = splitArray.slice(-n).join('\n');
-          done(data);
+          done(lastNLines);
       });
     },
  };
