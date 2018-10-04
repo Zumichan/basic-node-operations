@@ -23,7 +23,7 @@ const fs = require("fs");
        commandLibrary.tail(userInputArray.slice(1));
        break;
      default:
-       console.log("command cannot be found")
+       commandLibrary.errorHandler();
    }
  }
 
@@ -38,11 +38,14 @@ const fs = require("fs");
           done(data);
       });
     },
+    //user will input a command such as "head bash.js 2"
     "head": function(fullPath) {
       const fileName = fullPath[0];
+      const n = fullPath[1];
       fs.readFile(fileName, (err, data, n) => {
           if (err) throw err;
-          let splitArray = data.split("\n");
+          //console.log(data);
+          let splitArray = data.toString().split("\n");
           let firstNLines = splitArray.slice(0,n).join("\n");
           done(firstNLines);
       });
@@ -56,6 +59,9 @@ const fs = require("fs");
           done(lastNLines);
       });
     },
+    "errorHandler": function(userInput){
+      console.log(`${userInput} is not a command`);
+    }
  };
 
  module.exports.commandLibrary = commandLibrary;

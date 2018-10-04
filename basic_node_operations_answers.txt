@@ -134,3 +134,19 @@ Example
 Input: "I'm learning to program algorithms!"
 Output: "m'I gninrael ot margorp !smhtirogla"
 
+```
+function reverseString(string) {
+    let reversedStrArr = [];
+    let splitStr = string.split(' ');
+    //console.log(splitStr)
+    
+    splitStr.forEach( word => {
+      let splitWord = word.split('');
+      reversedStrArr.push(splitWord.reverse().join(''));
+    });
+return reversedStrArr.join(' ');
+}
+
+let result = reverseString("I'm learning to program algorithms!");
+console.log(result);
+```
