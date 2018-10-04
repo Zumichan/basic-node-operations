@@ -134,6 +134,7 @@ Example
 Input: "I'm learning to program algorithms!"
 Output: "m'I gninrael ot margorp !smhtirogla"
 
+
 ```
 function reverseString(string) {
     let reversedStrArr = [];
