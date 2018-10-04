@@ -42,19 +42,22 @@ const fs = require("fs");
     "head": function(fullPath) {
       const fileName = fullPath[0];
       const n = fullPath[1];
-      fs.readFile(fileName, (err, data, n) => {
+      fs.readFile(fileName, (err, data) => {
           if (err) throw err;
           //console.log(data);
+          //use toString() to convert data to string so that I can run split
           let splitArray = data.toString().split("\n");
           let firstNLines = splitArray.slice(0,n).join("\n");
           done(firstNLines);
       });
     },
+    //user will input a command such as "tail bash.js 2"
     "tail": function(fullPath) {
       const fileName = fullPath[0];
-      fs.readFile(fileName, (err, data, n) => {
+      const n = fullPath[1];
+      fs.readFile(fileName, (err, data) => {
           if (err) throw err;
-          let splitArray = data.split('\n');
+          let splitArray = data.toString().split('\n');
           let lastNLines = splitArray.slice(-n).join('\n');
           done(lastNLines);
       });
