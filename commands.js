@@ -23,7 +23,7 @@ const fs = require("fs");
        commandLibrary.tail(userInputArray.slice(1));
        break;
      default:
-       commandLibrary.errorHandler();
+       commandLibrary.errorHandler(userInputArray[0]);
    }
  }
 
